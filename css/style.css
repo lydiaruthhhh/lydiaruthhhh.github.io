@@ -1,0 +1,83 @@
+body{
+    font-family: Merriweather;
+    background-color: black;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    font-size: 1.25vw;
+}
+body> header{
+    background-color: rgb(29, 185, 84);
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+body>main article{
+    width: 80%;
+    margin: auto;
+}
+
+#main-content{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#main-content> div{
+    width:70%;
+}
+
+body >header>nav>ul{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+}
+.navbutton{
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 10%;
+}
+#nav-ul{
+    display: flex;
+}
+#nav-ul>li{
+    padding: 8px;
+    margin: 16px;
+}
+main{
+    background-color: rgb(29, 185, 84);
+}
+body>footer{
+    background-color: rgb(29, 185, 84);
+}
+
+h1, h2, h3{
+    padding: 8px;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);}
+img{
+    border-radius: 75%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+
+#footer-ul{
+    display: flex;
+    list-style: none;
+}
+
+#footer-ul>div>li{
+    margin-left: 12px;
+}
+
+#footer-ul>div>li>a{
+    color:white;
+    text-decoration:none;
+}
