@@ -1,132 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="app.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lydia's music blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>What's on Lydia's Radar?</title>
 </head>
 <body>
-    <header>
-    <h1>Lydia's music blog</h1>
-    <nav >
-        <ul id="nav-ul">
-            <li><a href="" class="navbutton">Home</a></li>
-            <li><a href="" class="navbutton">About us</a></li>
-            <li><a href="" class="navbutton">Contact</a></li>
-        </ul>
-    </nav>
-    </header>
-    <main>
-        <div id="main-content">
-            <aside>
-                <section>
-                    <h4>Filter by Month</h4>
-                    <nav>
-                        <ul>
-                            <li><a href="">Filter for January</a></li>
-                            <li><a href="">Filter for February</a></li>
-                            <li><a href="">Filter for March</a></li>
-                        </ul>
-                    </nav>
-                </section>
-                <section>
-                    <h4>Filter by Category</h4>
-                    <nav>
-                        <ul>
-                            <li><a href="">Song</a></li>
-                            <li><a href="">Artist</a></li>
-                            <li><a href="">Genre</a></li>
-                            <li><a href="">Date</a></li>
-                        </ul>
-                    </nav>
-                </section>
-            </aside> 
-            <div>
-                <article>
-            <header>
-                <!-- article header -->
-                 <h2>Song a day: analysis</h2>
-                 <h3>Read time: 5 minutes</h3>
-            </header>
-            <main>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus mollitia iste sequi ab, eligendi unde animi alias odio inventore quam aperiam itaque magni quas quis, adipisci beatae eius atque magnam? Expedita alias amet libero sapiente laborum ex, delectus ad rem! Commodi eveniet tempora dolores ipsum porro mollitia voluptatem sed totam voluptates, corrupti, explicabo dolorum laboriosam deserunt minus itaque et voluptas provident nisi rem vel nulla. Earum dolores error tempora.</p>
-                <blockquote>
-                    "slay" <cite>-Lydia, 2024</cite>
-                </blockquote>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse sequi aperiam provident delectus, officia ad recusandae nobis, ratione voluptatem, voluptatum temporibus. Ab velit libero assumenda voluptatibus aliquid repellat cum dicta, maiores enim minima ea voluptas harum! Illo sequi assumenda dolorum explicabo animi provident officiis numquam omnis, odit libero, impedit facilis quam, sit ipsum aut. Dolorum placeat in deleniti recusandae voluptates eos! Inventore veritatis aliquid, ipsa ipsam harum laudantium dicta fugit assumenda quod in totam reprehenderit provident numquam voluptas obcaecati deleniti, distinctio quo odit minus, sint rerum. Officiis, excepturi vero eaque fugiat adipisci dolores reiciendis fuga repellat voluptate sequi deserunt amet minus assumenda. Similique iste, error beatae voluptatem dolor, id numquam libero, exercitationem iusto possimus temporibus sint. Eveniet animi reprehenderit earum repellendus magni maxime porro. Sapiente, ea. Maiores reiciendis, quis officiis suscipit, quo expedita dolore cumque ipsum ut harum recusandae nostrum corporis minus repudiandae totam ad veniam optio exercitationem reprehenderit provident.</p>
-            </main>
-            <footer>
-                <h2>Author: Lydia Ruth Arnold</h2>
-                <img src="IMG_5878.JPG" alt="lydia-ruth-arnold" height="100">
-                <h3>Last posted: 20-08-2024</h3>
-            <a href="https://www.linkedin.com/in/lydia-ruth-arnold/" target="_blank">Author's profile</a>
-            </footer>
-                </article>  
-            </div> 
+    <div id="grid-container">
+        <header>
+        <img src="Lydia's 2.PNG" width=20% alt="logo">
+        <div><h1>What's on Lydia's Radar?</h1>
+        <h2>A deep dive into my favourite tunes</h2>
         </div>
-        <hr>
-        <h2>Sign up for our newsletter!</h2>
-        <form action="" method="">
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" required>
-            <br>
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name" required>
-            <br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <label for="favourite_song">Favourite song:</label>
-            <input type="radio" name="favourite_song" id="song_1" value="song_1"checked>
-            <label for="song_1">Song 1</label>        
-            <input type="radio" name="favourite_song" id="song_2" value="song_2">
-            <label for="song_2">Song 2</label>        
-            <input type="radio" name="favourite_song" id="song_3" value="song_3">
-            <label for="song_3">Song 3</label>        
-            <br>
-            <label for="country">Country:</label>
-            <select name="country" id="country">
-                <option value="uk">UK</option>
-                <option value="ireland">Ireland</option>
-                <option value="france">France</option>
-                <option value="germany">Germany</option>
-            </select>
-            <br>
-            <label for="biography">Biography</label>
-            <textarea name="biography" id="biography" cols="30" rows="5"></textarea>
-            <br>
-            <input type="checkbox" id="subscribe" name="subscribe">
-            <label for="subscribe">Subscribe to our newsletter!</label>
-            <br>
-            <input type="submit" value="Send">
-        </form>
-        <hr>
-    </main>
-
-
-    <footer>
-        <h2>Lydia's music blog</h2>
+        </header>
+        <div id="menu">
         <nav>
-            <ul id="footer-ul">
-                <div>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">Music</a></li>
-                    <li><a href="">Spotify</a></li>
-                </div>
-                <div>
-                <li><a href="">Top Artists</a></li>
-                <li><a href="">Top Genres</a></li>
-                <li><a href="">Donate</a></li>
-            </div>
-            </ul>
-        </nav>    
-    </footer>
+        <ul id="nav-ul">
+        <li><a href="index.html" class="navbutton"><em>Home</em></a></li>
+        <li><br><br></li>
+        <li><a href="https://open.spotify.com/user/81lnii0gl3qad4zh50cxcfr0m?si=70b223a095434962" target="_blank" class="navbutton"><em>Spotify</em></a></li>
+        <li><br><br></li>
+        <li><a href="https://www.linkedin.com/in/lydia-ruth-arnold/" class="navbutton"><em>LinkedIn</em></a> </li>
+        </ul>
+        </nav>
+        </div>
+        <section id="main-content">
+        <h2>A song a day for 2024</h2>
+        <p>One of my new years' resolutions for 2024 was to create a playlist with a song from every day. Given my music taste is a bit chaotic, this has resulted in quite the playlist! With the links below, you'll be able to access:</p>
+        <h2><a href="full.html" id="pagetitle">Full playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="january.html" id="pagetitle">January 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="february.html" id="pagetitle">February 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="march.html" id="pagetitle">March 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="april.html" id="pagetitle">April 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="may.html" id="pagetitle">May 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="june.html" id="pagetitle">June 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="july.html" id="pagetitle">July 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="august.html" id="pagetitle">August 2024 playlist and analysis</a></h2>
+        <hr>
+        <h2><a href="september.html" id="pagetitle">September 2024 playlist and analysis</a></h2>
+    <p>This website was created for the Bright Network Couch to Coder 2024 Course in HTML, CSS and JavaScript. If you've come across this website and would like to connect, my LinkedIn is on the left! + If you'd like to suggest any songs for the playlist, feel free to drop me a message on there!
+    <br>
+    -Lydia :)
+    </p>
+    </section>
+        <footer>&copy; 2024 Lydia Ruth Arnold</footer>
+        </div>
 </body>
 </html>
