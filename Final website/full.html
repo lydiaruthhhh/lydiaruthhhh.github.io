@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>What's on Lydia's Radar?</title>
+</head>
+<body>
+    <div id="grid-container">
+        <header>
+            <img src="Lydia's 2.PNG" width="20%" alt="logo">
+            <div>
+                <h1>What's on Lydia's Radar?</h1>
+                <h2>A deep dive into my favourite tunes</h2>
+            </div>
+        </header>
+        <div id="menu">
+            <nav>
+                <ul id="nav-ul">
+                    <li><a href="index.html" class="navbutton"><em>Home</em></a></li>
+                    <li><br><br></li>
+                    <li><a href="https://open.spotify.com/user/81lnii0gl3qad4zh50cxcfr0m?si=70b223a095434962" target="_blank" class="navbutton"><em>Spotify</em></a></li>
+                    <li><br><br></li>
+                    <li><a href="https://www.linkedin.com/in/lydia-ruth-arnold/" class="navbutton"><em>LinkedIn</em></a> </li>
+                </ul>
+            </nav>
+        </div>
+        <section id="main-content">
+            <h2>Full playlist (up to 13th September)</h2>
+            <p>Spotify won't allow me to embed the whole playlist, but you can find it <a href="https://open.spotify.com/playlist/14V4QSVll4pqNK0G9MnviJ?si=ca10edd7a6524711">here</a></p>
+            <br>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/14V4QSVll4pqNK0G9MnviJ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+            <h2>Analysis:</h2>
+            <ul>
+                <li><strong>Playlist mood:</strong> Energetic and Vocal</li>
+                <li><strong>Top genre:</strong> Rock</li>
+                <li><strong>Top sub-genre:</strong> Pop</li>
+                <li><strong>Most repeated artist:</strong> Jungle and Pendulum</li>
+                <li><strong>Most repeated decade:</strong> 2010s</li>
+                <li><strong>Most repeated key:</strong> C</li>
+                <li><strong>Average length:</strong> 3:56</li>
+                <li><strong>Average tempo:</strong> 126bpm</li>
+                <li><strong>Longest song:</strong> You - The 1975</li>
+                <li><strong>Shortest song:</strong> Under the Influence Pt.II - Snoh Aalegra</li>
+            </ul>
+
+            <h3>Top artists:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Artist</th>
+                        <th>Number of Appearances</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Jungle</td><td>7</td></tr>
+                    <tr><td>Pendulum</td><td>7</td></tr>
+                    <tr><td>alt-J</td><td>6</td></tr>
+                    <tr><td>Charli XCX</td><td>5</td></tr>
+                    <tr><td>David Guetta</td><td>3</td></tr>
+                    <tr><td>Hozier</td><td>3</td></tr>
+                    <tr><td>Black Eyed Peas</td><td>3</td></tr>
+                    <tr><td>Pharell Williams</td><td>2</td></tr>
+                    <tr><td>The Beatles</td><td>2</td></tr>
+                    <tr><td>Billie Eilish</td><td>2</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Average tempo per month:</h3>
+            <div style="width: 80%; height: 500px; margin: auto;">
+                <canvas id="myLargeLineChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+
+            <h3>Average song length per month:</h3>
+            <div style="width: 80%; height: 500px; margin: auto;">
+                <canvas id="LengthChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+
+            <h3>Songs by decade and key</h3>
+            <div class="charts-wrapper">
+                <!-- Doughnut Chart: Songs by Decade -->
+                <div class="chart-container">
+                    <canvas id="decadesChart"></canvas>
+                </div>
+
+                <!-- Doughnut Chart: Songs by Key -->
+                <div class="chart-container">
+                    <canvas id="keyChart"></canvas>
+                </div>
+            </div>
+        </section>
+        <footer>&copy; 2024 Lydia Ruth Arnold</footer>
+    </div>
+
+    <script>
+        // Register the plugin
+        Chart.register(ChartDataLabels);
+
+        // Doughnut Chart: Songs by Decade
+        const ctx5 = document.getElementById('decadesChart').getContext('2d');
+        const decadesChart = new Chart(ctx5, {
+            type: 'doughnut',
+            data: {
+                labels: ['1960s', '1980s', '1990s', '1970s', '2020s', '2000s', '2010s'],
+                datasets: [{
+                    label: 'Number of songs',
+                    data: [5, 15, 16, 22, 53, 58, 88],
+                    backgroundColor: [
+                        "#B04D3D", "#E67E22", "#D9A35C", "#6B8E23", "#5F8C8D", "#9B7F9C", "#CE6B8B"
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Songs by Decade'
+                    },
+                    datalabels: {
+                        color: '#fff',
+                        formatter: (value, context) => {
+                            const dataset = context.chart.data.datasets[0];
+                            const total = dataset.data.reduce((acc, val) => acc + val, 0);
+                            const percentage = (value / total * 100).toFixed(2);
+                            return `${percentage}%`;
+                        },
+                        anchor: 'center',
+                        align: 'center',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        },
+                        offset: 0
+                    }
+                }
+            }
+        });
+
+        // Doughnut Chart: Songs by Key
+        const ctx4 = document.getElementById('keyChart').getContext('2d');
+        const keyChart = new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                labels: ['D#/E♭', 'G#/A♭', 'E', 'F#/G♭', 'C#/D♭', 'F', 'B', 'A#/B♭', 'D', 'G', 'A', 'C'],
+                datasets: [{
+                    label: 'Number of songs',
+                    data: [6, 13, 13, 14, 17, 21, 22, 22, 25, 26, 33, 45],
+                    backgroundColor: [
+                        "#B04D3D", "#E67E22", "#D9A35C", "#6B8E23", "#5F8C8D", "#9B7F9C", "#CE6B8B", "#A4A4A4", "#7F9A5F", "#9E6F3F", "#8C5C8C", "#C4795B"
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Songs by Key'
+                    },
+                    datalabels: {
+                        color: '#fff',
+                        formatter: (value, context) => {
+                            const dataset = context.chart.data.datasets[0];
+                            const total = dataset.data.reduce((acc, val) => acc + val, 0);
+                            const percentage = (value / total * 100).toFixed(2);
+                            return `${percentage}%`;
+                        },
+                        anchor: 'center',
+                        align: 'center',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        },
+                        offset: 0
+                    }
+                }
+            }
+        });
+
+        // Line Chart: Average tempo per month
+        const ctx = document.getElementById('myLargeLineChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+                datasets: [{
+                    label: 'Average Tempo (bpm)',
+                    data: [123, 125, 126, 127, 129, 130, 131, 132],
+                    borderColor: 'rgba(49, 71, 58, 1)',
+                    backgroundColor: 'rgba(49, 71, 58, 0.5)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Average Tempo per Month'
+                    }
+                }
+            }
+        });
+
+        // Bar Chart: Average song length per month
+        const ctx2 = document.getElementById('LengthChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+                datasets: [{
+                    label: 'Average Length (seconds)',
+                    data: [229,228,246,268,229,216,234,234],
+                    backgroundColor: 'rgba(49, 71, 58, 0.5)',
+                    borderColor: 'rgba(49, 71, 58, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Average Song Length per Month'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
